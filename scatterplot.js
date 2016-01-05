@@ -89,4 +89,11 @@ function draw(dataset) {
     .attr("class", "axis")
     .attr("transform", "translate(" + padding + ",0)")
     .call(yAxis);
+
+  svg.append("svg:line")
+    .attr("x1", 30)
+    .attr("y1", 250)
+    .attr("x2", 450)
+    .attr("y2", 150)
+    .style("stroke", "rgb(6,120,155)"); 
 }

@@ -43,7 +43,6 @@ function gradient_descent(X, y) {
     h = sigmoid_matrix(math.multiply(X, w));
     err = math.subtract(y, h);
     w = math.add(w, math.multiply(X, math.dotMultiply(alpha, err)))
-
-    document.writeln(w)
   }
+  document.writeln(w)
 }
