@@ -1,10 +1,19 @@
-// TODO load csv
-//      unit tests
-//      real dataset
+/*
+ * Martin Kersner, m.kersner@gmail.com
+ * 2016/01/04
+ *
+ *
+ * TODO load csv
+ *      unit tests
+ *      real dataset
+ */
+
 
 function dummy_data() {
-  var X = math.matrix([[1, 1], [0, 0]]);
-  var y = math.matrix([[1], [0]]);
+  var X = math.matrix([[1, 1], 
+                       [0, 0]]);
+  var y = math.matrix([[1], 
+                       [0]]);
 
   return [X, y];
 }
