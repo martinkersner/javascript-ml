@@ -10,12 +10,48 @@
 
 
 function dummy_data() {
-  var X = math.matrix([[1, 1], 
-                       [0, 0]]);
-  var y = math.matrix([[1], 
-                       [0]]);
+  var X = [[1, 1], 
+           [0, 0]];
+  var y = [[1], 
+           [0]];
+
 
   return [X, y];
+}
+
+function dummy_data2() {
+  var X = [[5,   20], 
+           [25,  67], 
+           [85,  21], 
+           [100, 33], 
+           [220, 88],
+           [250, 50], 
+           [330, 95],
+           [410, 12], 
+           [475, 44], 
+           [480, 90], 
+           [600, 150]];
+  var y = [[0],
+           [0],
+           [0],
+           [0],
+           [0],
+           [0],
+           [0],
+           [0],
+           [0],
+           [0],
+           [0]]
+
+  return [X, y]
+}
+
+function conc_col_ones(data) {
+  //ones = math.ones(data.size()[0], 1);
+  ones = math.ones(data.length, 1);
+  modified_data = math.concat(ones, data);
+
+  return modified_data
 }
 
 function sigmoid(z) {
@@ -32,17 +68,21 @@ function sigmoid_matrix(z) {
 }
 
 function gradient_descent(X, y) {
-  var cycles = 50;
+  var cycles = 500;
   var alpha = 0.001;
   var cols = X.size()[1];
   var w = math.ones(cols, 1);
 
+  X = math.transpose(X);
+  y = math.transpose(y);
+
   var h, err;
 
   for (i = 0; i <= cycles; i++) {
-    h = sigmoid_matrix(math.multiply(X, w));
+    h = sigmoid_matrix(math.multiply(math.transpose(w), X));
     err = math.subtract(y, h);
-    w = math.add(w, math.multiply(X, math.dotMultiply(alpha, err)))
+    w = math.add(w, math.multiply(X, math.transpose(math.dotMultiply(alpha, err))))
   }
-  document.writeln(w)
+
+  return w;
 }

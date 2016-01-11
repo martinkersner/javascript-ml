@@ -23,12 +23,23 @@
 
   <body>
   <script type="text/javascript">
-    data = dummy_data();
+    data = dummy_data2();
     X = data[0];
     y = data[1];
 
-    gradient_descent(X, y);
-    draw(X);
+    X_mod = conc_col_ones(X);
+
+    w = gradient_descent(X_mod, y);
+    x1 = 0;
+    y1 = (-w._data[0]-w._data[1]*x1)/w._data[2];
+    x2 = 600;
+    y2 = (-w._data[0]-w._data[1]*x2)/w._data[2];
+    line = [x1,
+            y1,
+            x2,
+            y2]; 
+
+    draw(X, line);
   </script>
   </body>
 </html>

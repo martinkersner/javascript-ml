@@ -1,16 +1,10 @@
 /*
  * http://alignedleft.com/tutorials/d3/axes
  */
-function draw(dataset) {
+function draw(dataset, line) {
   var w = 500;
   var h = 300;
   var padding = 30;
-
-  var dataset = [
-              [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
-              [410, 12], [475, 44], [25, 67], [85, 21], [220, 88],
-              [600, 150]
-              ];
 
   //Create scale functions
   var xScale = d3.scale.linear()
@@ -91,9 +85,9 @@ function draw(dataset) {
     .call(yAxis);
 
   svg.append("svg:line")
-    .attr("x1", 30)
-    .attr("y1", 250)
-    .attr("x2", 450)
-    .attr("y2", 150)
+    .attr("x1", line[0])
+    .attr("y1", line[1])
+    .attr("x2", line[2])
+    .attr("y2", line[3])
     .style("stroke", "rgb(6,120,155)"); 
 }
